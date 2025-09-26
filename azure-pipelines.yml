@@ -1,11 +1,18 @@
 trigger:
 - main
 
+resources:
+  repositories:
+    - repository: self
+      type: github
+      name: TomasCabanilla/TP-4-Azure_Tomi   # 👈 tu fork exacto en GitHub
+
 pool:
   name: TP4-AgentPool
   demands:
-  - agent.name -equals Agente007
+    - agent.name -equals Agente007
 
 steps:
+- checkout: self
 - script: echo "🎉 El agente funciona correctamente!"
   displayName: "Probar agente local"
